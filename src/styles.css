@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css");
+@import url('https://fonts.googleapis.com/css?family=Roboto:300&display=swap');
+
+body{
+    font-family: 'Roboto', sans-serif;
+    background: #e2e2e2;
+}
+
+.form-card{
+    background: #fff;
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.20);
+}
+
+h1{
+    text-transform: uppercase;
+}
+
+#intro{
+    margin-top: 3rem;
+}
+
+.testo-grande{
+    font-size:2rem;
+}
+
+.input-nascosto{
+    display: none;
+}
+

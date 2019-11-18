@@ -1,0 +1,122 @@
+<div class="container">
+  <div class="row text-center">
+    <div class="col">
+      <div id="intro">
+        <p class="testo-grande">
+          Compila il seguente form così da restare in contatto. <br>
+        </p>
+        <p>Campi obbligatori.</p>
+      </div>
+      <div class="col-md-6 col-sm-12 offset-md-3 form-card my-5 p-4">
+
+        <h3 class="text-primary"><i class="far fa-edit"></i> Form Contatto</h3>
+        <form (ngSubmit)="invia()" name="modulo" [formGroup]="progettoForm">
+          <div class="form-group">
+            <label for="n">Nome</label>
+            <input formControlName="n" type="text" class="form-control" id="n" placeholder="name">
+          </div>
+          <div *ngIf="progettoForm.get('n').invalid && progettoForm.get('n').touched"
+          class="alert alert-danger mx-3">
+          <div *ngIf="progettoForm.get('n').errors.required">
+            Nome mancante
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="c">Cognome</label>
+          <input formControlName="c" type="text" class="form-control" id="c" placeholder="surname">
+        </div>
+        <div *ngIf="progettoForm.get('c').invalid && progettoForm.get('c').touched"
+        class="alert alert-danger mx-3">
+        <div *ngIf="progettoForm.get('c').errors.required">
+          Cognome mancante
+        </div>
+      </div>
+    <div class="form-group">
+        <label for="ma">Mail</label>
+        <input formControlName="ma" type="email" class="form-control" id="ma" aria-describedby="emailHelp" placeholder="mail">
+      </div>
+      <div *ngIf="progettoForm.get('ma').invalid && progettoForm.get('ma').touched"
+      class="alert alert-danger mx-3">
+      <div *ngIf="progettoForm.get('ma').errors.required">
+        Email mancante
+      </div>
+      <div *ngIf="progettoForm.get('ma').errors.email">
+        non valida
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="data">Data di nascita</label>
+      <input formControlName="na" type="date" class="form-control" id="data"  placeholder="gg/mm/aaaa">
+    </div>
+    <div *ngIf="progettoForm.get('na').invalid && progettoForm.get('na').touched"
+    class="alert alert-danger mx-3">
+    <div *ngIf="progettoForm.get('na').errors.required">
+      Data di nascita mancante
+    </div>
+    <div *ngIf="progettoForm.get('na').errors.invalidValue">
+      Errore: sei minorenne
+    </div>
+  </div>
+  <fieldset class="form-group">
+    <legend>Quali sono i tuoi maggiori interessi?</legend>
+    <div *ngIf="(dCh8<3)"
+    class="alert alert-info">
+    Seleziona minimo 3 interessi
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="checkbox" id="dCh1" (click)="it();" formControlName="dCh1">
+    <label class="form-check-label" for="dCh1">
+      Economia
+    </label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="checkbox" id="dCh2" (click)="it2();" formControlName="dCh2">
+    <label class="form-check-label" for="dCh2">
+      Politica
+    </label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="checkbox" id="dCh3" (click)="it3();" formControlName="dCh3">
+    <label class="form-check-label" for="dCh3">
+      Informatica
+    </label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="checkbox" id="dCh4" (click)="it4();" formControlName="dCh4">
+    <label class="form-check-label" for="dCh4">
+      Nuove Tecnologie
+    </label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="checkbox" id="dCh5" (click)="it5();" formControlName="dCh5">
+    <label class="form-check-label" for="dCh5">
+      Arte - Musica
+    </label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="checkbox" id="dCh6" (click)="it6();" formControlName="dCh7">
+    <label class="form-check-label" for="dCh6">
+      Viaggi
+    </label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="checkbox" id="dCh7" (click)="it7();" formControlName="dCh7">
+    <label class="form-check-label" for="dCh7" >
+      Food - Wine
+    </label>
+  </div>
+</fieldset>
+<input type="text" name="" id="" value="{{dCh8}}" formControlName="checkboxVal" class="input-nascosto">
+<div class="my-3">
+
+  <button name="button" class="btn btn-primary" [disabled]="!progettoForm.valid ||(dCh8<3)">Invia</button>
+</div>
+
+<!-- <app-test-api></app-test-api> -->
+
+</form>
+
+
+</div>
+</div>
+</div>
